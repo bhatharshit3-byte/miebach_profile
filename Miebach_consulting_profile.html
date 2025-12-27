@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miebach Consulting - Company Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            color: #2c3e50;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header h1 {
+            font-size: 3.5em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .header .tagline {
+            font-size: 1.3em;
+            color: #b0b0b0;
+            font-style: italic;
+        }
+
+        .company-info {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #667eea;
+        }
+
+        .company-info p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: "▶";
+            margin-right: 15px;
+            color: #764ba2;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid #e8e8e8;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+            background: #f8f9fa;
+        }
+
+        .card h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .tech-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .tech-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .partner-badge {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.3);
+        }
+
+        .partner-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(245, 87, 108, 0.5);
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .location-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .location-card h4 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 12px;
+        }
+
+        .location-card ul {
+            list-style: none;
+        }
+
+        .location-card ul li {
+            padding: 5px 0;
+            color: #555;
+        }
+
+        .event-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 4px solid #f5576c;
+            transition: all 0.3s ease;
+        }
+
+        .event-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .event-item h4 {
+            color: #f5576c;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+
+        .event-item .event-date {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .industry-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .industry-tag {
+            background: #e8eaf6;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid #c5cae9;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+        }
+
+        .industry-tag:hover {
+            background: #c5cae9;
+            border-color: #667eea;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f0f4ff 0%, #faf0ff 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #d0d9ff;
+        }
+
+        .highlight-box h3 {
+            color: #667eea;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+
+        /* Print Styles for PDF Export */
+        @media print {
+            body {
+                background: white;
+                color: #000;
+                font-size: 11pt;
+                line-height: 1.4;
+                padding: 0;
+            }
+
+            .container {
+                max-width: 100%;
+                box-shadow: none;
+                border: none;
+                padding: 20px;
+                margin: 0;
+            }
+
+            .header {
+                page-break-after: avoid;
+                margin-bottom: 30px;
+                padding-bottom: 20px;
+            }
+
+            .header h1 {
+                font-size: 28pt;
+                color: #667eea;
+            }
+
+            .section {
+                page-break-inside: avoid;
+                margin-bottom: 25px;
+            }
+
+            .section-title {
+                page-break-after: avoid;
+                font-size: 18pt;
+                color: #667eea;
+                margin-top: 20px;
+                margin-bottom: 15px;
+            }
+
+            .card-grid {
+                display: block;
+            }
+
+            .card {
+                page-break-inside: avoid;
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                box-shadow: none;
+                background: #f9f9f9;
+                padding: 15px;
+            }
+
+            .card:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            .highlight-box {
+                page-break-inside: avoid;
+                background: #f5f5f5 !important;
+                border: 2px solid #667eea;
+                padding: 15px;
+                margin: 15px 0;
+            }
+
+            .location-grid {
+                display: block;
+            }
+
+            .location-card {
+                page-break-inside: avoid;
+                margin-bottom: 10px;
+                background: white;
+                border: 1px solid #ddd;
+            }
+
+            .event-item {
+                page-break-inside: avoid;
+                background: white;
+                border: 1px solid #ddd;
+                margin-bottom: 10px;
+            }
+
+            .tech-badge,
+            .partner-badge {
+                background: #e0e0e0 !important;
+                color: #000 !important;
+                box-shadow: none;
+                border: 1px solid #999;
+                display: inline-block;
+                margin: 3px;
+                padding: 5px 10px;
+            }
+
+            .industry-tag {
+                background: #f0f0f0 !important;
+                color: #000 !important;
+                border: 1px solid #ccc;
+                display: inline-block;
+                margin: 3px;
+            }
+
+            /* Remove hover effects in print */
+            .tech-badge:hover,
+            .partner-badge:hover,
+            .industry-tag:hover,
+            .event-item:hover {
+                transform: none;
+                box-shadow: none;
+            }
+
+            /* Ensure links are visible */
+            a {
+                color: #667eea;
+                text-decoration: underline;
+            }
+
+            /* Print URLs after links */
+            a[href^="http"]:after {
+                content: " (" attr(href) ")";
+                font-size: 9pt;
+                color: #666;
+            }
+
+            /* Don't print URLs for internal anchors */
+            a[href^="#"]:after {
+                content: "";
+            }
+
+            /* Optimize header gradient for print */
+            .header h1 {
+                background: none;
+                -webkit-text-fill-color: #667eea;
+                color: #667eea;
+            }
+
+            /* Better spacing for lists */
+            ul {
+                margin-left: 15px;
+            }
+
+            li {
+                margin-bottom: 5px;
+            }
+
+            /* Page breaks */
+            h2,
+            h3 {
+                page-break-after: avoid;
+            }
+
+            /* Footer */
+            .footer {
+                page-break-before: avoid;
+                margin-top: 30px;
+                padding-top: 20px;
+                border-top: 2px solid #ddd;
+            }
+
+            /* Compact spacing for print */
+            .card h3 {
+                font-size: 14pt;
+                margin-bottom: 10px;
+            }
+
+            .card ul {
+                margin-top: 5px;
+            }
+
+            /* Ensure good contrast */
+            .company-info {
+                background: #f9f9f9;
+                border-left: 4px solid #667eea;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Miebach Consulting</h1>
+            <p class="tagline">26 Offices. Four Continents. One Focus.</p>
+        </div>
+
+        <div class="company-info">
+            <p><strong>Industry:</strong> Business Consulting and Services - Supply Chain & Logistics</p>
+            <p><strong>Headquarters:</strong> Frankfurt am Main, Hessen, Germany</p>
+            <p><strong>LinkedIn Followers:</strong> 39,741+</p>
+            <p><strong>Global Presence:</strong> 26+ offices across 4 continents in 22+ countries</p>
+        </div>
+
+        <!-- CRM Account Information -->
+        <div class="section">
+            <h2 class="section-title">CRM Account Information</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>📋 Account Details</h3>
+                    <ul>
+                        <li><strong>CT Account ID:</strong> CT-MI-032056</li>
+                        <li><strong>Account Name:</strong> Miebach</li>
+                        <li><strong>Industry:</strong> Business Consulting & Services</li>
+                        <li><strong>CRM Status:</strong> Mapped with Sales Excellence</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>👤 Customer Contact</h3>
+                    <ul>
+                        <li><strong>Name:</strong> Sisi Ren</li>
+                        <li><strong>Title:</strong> Senior Consultant at Miebach</li>
+                        <li><strong>Met At:</strong> DAIS 2025 (Databricks Data + AI Summit)</li>
+                        <li><strong>LinkedIn:</strong> <a
+                                href="https://www.linkedin.com/company/miebach/?viewAsMember=true"
+                                style="color: #667eea;">View Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="highlight-box"
+                style="margin-top: 20px; background: linear-gradient(135deg, rgba(245, 87, 108, 0.2) 0%, rgba(240, 147, 251, 0.2) 100%); border-color: rgba(245, 87, 108, 0.3);">
+                <h3 style="color: #f5576c;">⚠️ Account Status Note</h3>
+                <p><strong>Current Opportunities:</strong> No active opportunities in this account</p>
+                <p><strong>Last Timeline:</strong> Contact established at DAIS 2025</p>
+                <p><strong>Next Steps:</strong> Follow up on DAIS 2025 conversation, explore data & analytics
+                    collaboration opportunities aligned with their Snowflake partnership</p>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h3>Company Overview</h3>
+            <p>Miebach is the global, integrated supply chain partner for market leaders. With comprehensive
+                capabilities spanning strategy, engineering, and digital, a global team, and hard-earned expertise,
+                Miebach builds supply chains for the real-world. Supply chains that reach beyond efficiency, operations,
+                and the bottom line — improving customer loyalty, elevating reputations and meeting sustainability
+                goals. Supply chains that see, think, act, and adapt. Supply chains that bend instead of break.</p>
+        </div>
+
+        <!-- Core Offerings -->
+        <div class="section">
+            <h2 class="section-title">Core Offerings</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>🎯 Strategy</h3>
+                    <ul>
+                        <li>Supply Chain Network Design</li>
+                        <li>Strategic Growth Vectors</li>
+                        <li>Target Operating Models</li>
+                        <li>Process Optimization</li>
+                        <li>Facility Strategy</li>
+                        <li>Network Optimization</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>⚙️ Engineering</h3>
+                    <ul>
+                        <li>Cost-Effective Concept Development</li>
+                        <li>IT Solutions Architecture</li>
+                        <li>Technical Equipment Selection</li>
+                        <li>Implementation Oversight</li>
+                        <li>Warehouse Automation</li>
+                        <li>Facility Design & Planning</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>💻 Digital</h3>
+                    <ul>
+                        <li>Data Science & Analytics</li>
+                        <li>AI & Machine Learning</li>
+                        <li>Advanced Analytics</li>
+                        <li>Robust Data Pipelines</li>
+                        <li>Scalable Cloud Platforms</li>
+                        <li>Process Automation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tech Stack & Partnerships -->
+        <div class="section">
+            <h2 class="section-title">Technology Stack & Partnerships</h2>
+
+            <div class="highlight-box">
+                <h3>Confirmed Technology Partners</h3>
+                <div class="tech-stack">
+                    <span class="partner-badge">Snowflake ❄️</span>
+                    <span class="partner-badge">SAP (via Westernacher)</span>
+                    <span class="partner-badge">Coupa</span>
+                    <span class="partner-badge">Log-Hub</span>
+                    <span class="partner-badge">AIMMS</span>
+                    <span class="partner-badge">Solventure</span>
+                    <span class="partner-badge">ELEMQ (Joint Venture)</span>
+                </div>
+            </div>
+
+            <div class="card-grid" style="margin-top: 30px;">
+                <div class="card">
+                    <h3>Cloud & Data Platforms</h3>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Microsoft Azure</span>
+                        <span class="tech-badge">AWS</span>
+                        <span class="tech-badge">Google Cloud</span>
+                        <span class="tech-badge">Snowflake</span>
+                        <span class="tech-badge">Databricks</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Enterprise Solutions</h3>
+                    <div class="tech-stack">
+                        <span class="tech-badge">SAP</span>
+                        <span class="tech-badge">Oracle</span>
+                        <span class="tech-badge">Salesforce</span>
+                        <span class="tech-badge">Red Hat</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>Automation & AI</h3>
+                    <div class="tech-stack">
+                        <span class="tech-badge">AI/ML Solutions</span>
+                        <span class="tech-badge">LaborAI</span>
+                        <span class="tech-badge">Robotics (AGV/AMR)</span>
+                        <span class="tech-badge">AS/RS Systems</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 30px;">
+                <h3>Key Partnership Highlights</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding: 10px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #667eea; font-weight: bold;">▶</span>
+                        <strong>Snowflake Partnership (March 2022):</strong> Building data cloud platforms to help
+                        organizations become data-driven
+                    </li>
+                    <li style="padding: 10px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #667eea; font-weight: bold;">▶</span>
+                        <strong>SAP Alliance:</strong> Through Westernacher Consulting (SAP Gold Partner) for integrated
+                        supply chain solutions
+                    </li>
+                    <li style="padding: 10px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #667eea; font-weight: bold;">▶</span>
+                        <strong>ELEMQ Joint Venture:</strong> Cloud-based platform with T2C for integrated supply chain
+                        and digital applications
+                    </li>
+                    <li style="padding: 10px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #667eea; font-weight: bold;">▶</span>
+                        <strong>Log-Hub Partnership:</strong> AI-powered applications and advanced data analytics for
+                        supply chain optimization
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Industries & Clients -->
+        <div class="section">
+            <h2 class="section-title">Industries Served & Client Profile</h2>
+
+            <div class="highlight-box">
+                <h3>Target Client Profile</h3>
+                <p><strong>Market Leaders & Fortune 500 Companies</strong> - Hundreds of large and medium-sized
+                    companies across diverse sectors</p>
+            </div>
+
+            <h3 style="color: #667eea; margin: 25px 0 15px 0; font-size: 1.4em;">Industry Verticals</h3>
+            <div class="industry-list">
+                <span class="industry-tag">🚗 Automotive & E-Mobility</span>
+                <span class="industry-tag">💊 Pharmaceutical & Medical Devices</span>
+                <span class="industry-tag">🛒 Consumer Goods</span>
+                <span class="industry-tag">🏭 Manufacturing & High-Tech</span>
+                <span class="industry-tag">👗 Fashion & Apparel</span>
+                <span class="industry-tag">🏬 Retail & E-Commerce</span>
+                <span class="industry-tag">🧪 Chemical Industry</span>
+                <span class="industry-tag">🚚 Logistics Service Providers</span>
+                <span class="industry-tag">✈️ Airport Logistics</span>
+                <span class="industry-tag">🔧 Aftermarket & Spare Parts</span>
+                <span class="industry-tag">💼 Private Equity</span>
+            </div>
+
+            <div class="card-grid" style="margin-top: 30px;">
+                <div class="card">
+                    <h3>Notable Case Studies</h3>
+                    <ul>
+                        <li>Global health & consumer goods company - 80% lead time reduction</li>
+                        <li>International automotive supplier - Smart greenfield factory planning</li>
+                        <li>Leading Swiss retailer - Multi-tier logistics network optimization</li>
+                        <li>Beauty & personal care brand - Global manufacturing optimization</li>
+                        <li>Warehouse consolidation & automation upgrades</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Solution Focus Areas</h3>
+                    <ul>
+                        <li>Strategic Nearshoring</li>
+                        <li>Network Redesign</li>
+                        <li>Warehouse Automation</li>
+                        <li>Digital Transformation</li>
+                        <li>Sustainability Initiatives</li>
+                        <li>Supply Chain Resilience</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Events & Conferences -->
+        <div class="section">
+            <h2 class="section-title">Events & Industry Presence</h2>
+
+            <h3 style="color: #667eea; margin: 25px 0 15px 0; font-size: 1.4em;">2025 Event Calendar</h3>
+
+            <div class="event-item">
+                <h4>LogiMAT 2025</h4>
+                <p class="event-date">📅 March 11-13, 2025 | Stuttgart, Germany</p>
+                <p>Focus: AI, sustainability, and process optimization in intralogistics</p>
+            </div>
+
+            <div class="event-item">
+                <h4>Gartner Supply Chain Symposium/Xpo™ 2025</h4>
+                <p class="event-date">📅 May 5-7, 2025 | Orlando, FL, USA</p>
+                <p>Discussing supply chain strategies and innovative technologies</p>
+            </div>
+
+            <div class="event-item">
+                <h4>OptiCon 2025</h4>
+                <p class="event-date">📅 May 6, 2025</p>
+                <p>Sponsor & Speaker - Supply chain design, digital modeling, and operational strategy</p>
+            </div>
+
+            <div class="event-item">
+                <h4>BVL Supply Chain CX 2025</h4>
+                <p class="event-date">📅 October 22-24, 2025 | Berlin, Germany</p>
+                <p>Topics: Digitization, sustainability, AI, and logistics innovation</p>
+            </div>
+
+            <div class="event-item">
+                <h4>Industry Summit Germany 2025</h4>
+                <p class="event-date">📅 November 5, 2025</p>
+                <p>Dr.-Ing. Reiner Friedland moderating roundtable on AI deployment in production</p>
+            </div>
+
+            <div class="event-item">
+                <h4>Gartner Supply Chain Planning Summit 2025</h4>
+                <p class="event-date">📅 December 2-3, 2025 | Denver, CO, USA</p>
+                <p>Exhibiting at booth #409 - AI and advanced analytics focus</p>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 30px;">
+                <h3>2024 Event Highlights</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #f5576c; font-weight: bold;">✓</span>
+                        MODEX 2024 - Manufacturing and supply chain solutions
+                    </li>
+                    <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #f5576c; font-weight: bold;">✓</span>
+                        Manifest, RILA, LogiMat
+                    </li>
+                    <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #f5576c; font-weight: bold;">✓</span>
+                        The Logistics World Summit and Expo
+                    </li>
+                    <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #f5576c; font-weight: bold;">✓</span>
+                        Coupa Inspire, IWLA, American SC Summit
+                    </li>
+                    <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #f5576c; font-weight: bold;">✓</span>
+                        Recognized as "Germany's best consultants 2024" by F.A.Z. Institute
+                    </li>
+                </ul>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 20px;">
+                <h3>Partner Event Participation</h3>
+                <p>While Miebach attends major industry events, they actively participate in conferences where their
+                    technology partners (Snowflake, Microsoft, AWS, Databricks) showcase solutions. Their presence at
+                    Gartner summits, Coupa Inspire, and industry-specific events demonstrates alignment with partner
+                    ecosystems.</p>
+            </div>
+        </div>
+
+        <!-- Office Locations -->
+        <div class="section">
+            <h2 class="section-title">Global Office Locations</h2>
+
+            <div class="location-grid">
+                <div class="location-card">
+                    <h4>🌍 Europe</h4>
+                    <ul>
+                        <li><strong>Germany:</strong> Frankfurt am Main (HQ), Berlin, Munich</li>
+                        <li><strong>Spain:</strong> Barcelona, Madrid</li>
+                        <li><strong>Poland:</strong> Gliwice</li>
+                        <li><strong>Belgium/Benelux:</strong> Leuven</li>
+                        <li><strong>Switzerland</strong></li>
+                        <li><strong>United Kingdom</strong></li>
+                        <li><strong>Italy</strong></li>
+                    </ul>
+                </div>
+
+                <div class="location-card">
+                    <h4>🌎 North America</h4>
+                    <ul>
+                        <li><strong>United States:</strong> Fishers, Indiana (US HQ)</li>
+                        <li><strong>Canada:</strong> Montreal</li>
+                        <li><strong>Mexico</strong></li>
+                    </ul>
+                </div>
+
+                <div class="location-card">
+                    <h4>🌎 Latin America</h4>
+                    <ul>
+                        <li><strong>Brazil:</strong> São Paulo</li>
+                        <li><strong>Argentina:</strong> Buenos Aires</li>
+                        <li><strong>Chile:</strong> Santiago</li>
+                        <li><strong>Guatemala:</strong> Guatemala City</li>
+                        <li><strong>Colombia</strong></li>
+                        <li><strong>Peru</strong></li>
+                    </ul>
+                </div>
+
+                <div class="location-card">
+                    <h4>🌏 Asia & Middle East</h4>
+                    <ul>
+                        <li><strong>China:</strong> Shanghai</li>
+                        <li><strong>India</strong></li>
+                        <li><strong>UAE:</strong> Dubai</li>
+                        <li><strong>Saudi Arabia:</strong> Jeddah</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 30px;">
+                <h3>Continental Distribution Summary</h3>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>Europe</h3>
+                        <p style="font-size: 2em; color: #667eea; font-weight: bold;">7+</p>
+                        <p>Countries</p>
+                    </div>
+                    <div class="card">
+                        <h3>Americas</h3>
+                        <p style="font-size: 2em; color: #667eea; font-weight: bold;">9+</p>
+                        <p>Countries</p>
+                    </div>
+                    <div class="card">
+                        <h3>Asia & Middle East</h3>
+                        <p style="font-size: 2em; color: #667eea; font-weight: bold;">4+</p>
+                        <p>Countries</p>
+                    </div>
+                    <div class="card">
+                        <h3>Total Offices</h3>
+                        <p style="font-size: 2em; color: #667eea; font-weight: bold;">26+</p>
+                        <p>Worldwide</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- C-Level Executives & Key Decision Makers -->
+        <div class="section">
+            <h2 class="section-title">C-Level Executives & Key Decision Makers</h2>
+
+            <div class="highlight-box">
+                <h3>🎯 Enterprise Sales Targeting Strategy</h3>
+                <p>For Celebal's enterprise sales approach, focus on engaging with digital transformation and technology
+                    decision-makers who oversee data & analytics initiatives. Miebach's partnership with Snowflake and
+                    emphasis on digital services creates natural alignment opportunities.</p>
+            </div>
+
+            <h3 style="color: #667eea; margin: 30px 0 20px 0; font-size: 1.6em;">Global Leadership Team</h3>
+
+            <div class="card-grid">
+                <div class="card" style="border-left: 4px solid #f5576c;">
+                    <h3>👔 Group CEOs (Co-CEOs)</h3>
+                    <ul>
+                        <li><strong>Jorge Motjé</strong> - CEO, Miebach Group
+                            <br><span style="color: #b0b0b0; font-size: 0.9em;">With Miebach since 1990, CEO since
+                                2011</span>
+                        </li>
+                        <li><strong>Jürgen Hess</strong> - CEO, Miebach Group & Managing Director Germany
+                            <br><span style="color: #b0b0b0; font-size: 0.9em;">With Miebach since 1992, CEO since
+                                2003</span>
+                        </li>
+                    </ul>
+                    <p
+                        style="margin-top: 15px; padding: 10px; background: rgba(245, 87, 108, 0.1); border-radius: 8px; font-size: 0.9em;">
+                        <strong>Sales Priority:</strong> Highest level - Strategic partnerships and global initiatives
+                    </p>
+                </div>
+
+                <div class="card" style="border-left: 4px solid #667eea;">
+                    <h3>🏛️ Advisory Board</h3>
+                    <ul>
+                        <li><strong>Dr. Joachim Miebach</strong> - Chairman, Advisory Board
+                            <br><span style="color: #b0b0b0; font-size: 0.9em;">Founder (1973), Strategic
+                                oversight</span>
+                        </li>
+                    </ul>
+                    <p
+                        style="margin-top: 15px; padding: 10px; background: rgba(102, 126, 234, 0.1); border-radius: 8px; font-size: 0.9em;">
+                        <strong>Engagement:</strong> Strategic vision and long-term partnerships
+                    </p>
+                </div>
+
+                <div class="card" style="border-left: 4px solid #764ba2;">
+                    <h3>🇩🇪 Germany Leadership</h3>
+                    <ul>
+                        <li><strong>Jochen Schühle</strong> - CEO Germany
+                            <br><span style="color: #b0b0b0; font-size: 0.9em;">Appointed 2020, Member of Group
+                                Management Board</span>
+                        </li>
+                        <li><strong>Wolfram Süssenguth</strong> - Managing Director & COO Germany
+                            <br><span style="color: #b0b0b0; font-size: 0.9em;">Chief Operations Officer</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="color: #f5576c; margin: 40px 0 20px 0; font-size: 1.6em;">🎯 PRIMARY TARGETS: Digital &
+                Technology Leaders</h3>
+
+            <div class="card-grid">
+                <div class="card"
+                    style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%); border: 2px solid #667eea;">
+                    <h3>💻 Digital Services Leadership</h3>
+                    <ul>
+                        <li><strong>Moritz Miebach</strong> - Partner & Head of Digital Services (Germany)
+                            <br><span style="color: #b0b0b0; font-size: 0.9em;">Also Managing Director Colombia</span>
+                        </li>
+                        <li><strong>Victoria Ma</strong> - Head of Supply Chain Transformation & Head of Digital
+                            Innovation (North America)
+                            <br><span style="color: #b0b0b0; font-size: 0.9em;">Focus: Digitalization, Advanced
+                                Analytics</span>
+                        </li>
+                        <li><strong>Nuria Álvarez</strong> - Strategy & Digital Director
+                            <br><span style="color: #b0b0b0; font-size: 0.9em;">Strategic digital initiatives</span>
+                        </li>
+                        <li><strong>Evgeny Babushkin</strong> - Director, Business Development Digital Services (Europe)
+                            <br><span style="color: #b0b0b0; font-size: 0.9em;">Digital services expansion</span>
+                        </li>
+                    </ul>
+                    <p
+                        style="margin-top: 15px; padding: 15px; background: rgba(102, 126, 234, 0.3); border-radius: 8px; font-weight: 600;">
+                        ⭐ HIGHEST PRIORITY for Celebal's Data & Analytics Solutions
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="color: #667eea; margin: 40px 0 20px 0; font-size: 1.6em;">Regional Leadership - North America
+            </h3>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3>🇺🇸 USA & Canada</h3>
+                    <ul>
+                        <li><strong>Bernard Tremblay</strong> - CEO, USA & Canada
+                            <br><span style="color: #b0b0b0; font-size: 0.9em;">Regional strategic leadership</span>
+                        </li>
+                        <li><strong>Nick Banich</strong> - Chief Revenue Officer & Partner (USA/Canada)
+                            <br><span style="color: #b0b0b0; font-size: 0.9em;">Customer success, alliances, commercial
+                                activities</span>
+                        </li>
+                        <li><strong>Mike Brown</strong> - Head of Process & IT Practice, Director & Head of Engineering
+                            (USA/Canada)
+                            <br><span style="color: #b0b0b0; font-size: 0.9em;">20+ years 3PL experience, joined
+                                2021</span>
+                        </li>
+                    </ul>
+                    <p
+                        style="margin-top: 15px; padding: 10px; background: rgba(102, 126, 234, 0.1); border-radius: 8px; font-size: 0.9em;">
+                        <strong>Key Contact:</strong> Nick Banich (CRO) - Alliances & Partnerships
+                    </p>
+                </div>
+            </div>
+
+            <h3 style="color: #667eea; margin: 40px 0 20px 0; font-size: 1.6em;">Regional Leadership - Europe</h3>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3>🇫🇷 France & Italy</h3>
+                    <ul>
+                        <li><strong>Alberto Alberici</strong> - Managing Director</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🇨🇭 Switzerland</h3>
+                    <ul>
+                        <li><strong>Rainer Schulz</strong> - Managing Director</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🇵🇱 Poland</h3>
+                    <ul>
+                        <li><strong>Marian Jezusek</strong> - Managing Director</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🇪🇸 Spain</h3>
+                    <ul>
+                        <li><strong>Miquel Viella</strong> - Managing Director
+                            <br><span style="color: #b0b0b0; font-size: 0.9em;">Recently succeeded Antonio
+                                Rodriguez</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="color: #667eea; margin: 40px 0 20px 0; font-size: 1.6em;">Regional Leadership - Latin America
+            </h3>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3>🌎 LATAM Regional</h3>
+                    <ul>
+                        <li><strong>Fernando Balzarini</strong> - Managing Director Argentina & Regional Director LATAM
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🇧🇷 Brazil</h3>
+                    <ul>
+                        <li><strong>Marcos Vranjac</strong> - Managing Director</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🇨🇱 Chile</h3>
+                    <ul>
+                        <li><strong>Camilo Godoy</strong> - Managing Director</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🇨🇴 Colombia</h3>
+                    <ul>
+                        <li><strong>Moritz Miebach</strong> - Managing Director
+                            <br><span style="color: #b0b0b0; font-size: 0.9em;">Also Head of Digital Services
+                                Germany</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="color: #667eea; margin: 40px 0 20px 0; font-size: 1.6em;">Regional Leadership - Asia & Middle
+                East</h3>
+
+            <div class="card-grid">
+                <div class="card">
+                    <h3>🇨🇳 China</h3>
+                    <ul>
+                        <li><strong>Dominik Bühring</strong> - Managing Director</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🇮🇳 India</h3>
+                    <ul>
+                        <li><strong>Nataraja Subramanian</strong> - Managing Director
+                            <br><span style="color: #b0b0b0; font-size: 0.9em;">Director, Miebach Consulting India Pvt
+                                Ltd</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box"
+                style="margin-top: 40px; background: linear-gradient(135deg, rgba(245, 87, 108, 0.2) 0%, rgba(240, 147, 251, 0.2) 100%); border: 2px solid #f5576c;">
+                <h3 style="color: #f5576c;">📋 Celebal Enterprise Sales Strategy</h3>
+
+                <h4 style="color: #667eea; margin: 20px 0 15px 0;">Primary Targets (Tier 1 - Immediate Outreach)</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding: 10px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #f5576c; font-weight: bold;">1.</span>
+                        <strong>Victoria Ma</strong> - Head of Digital Innovation (North America) - Met Sisi Ren at DAIS
+                        2025, perfect alignment with Databricks/Snowflake initiatives
+                    </li>
+                    <li style="padding: 10px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #f5576c; font-weight: bold;">2.</span>
+                        <strong>Moritz Miebach</strong> - Partner & Head of Digital Services (Germany) - Strategic
+                        digital transformation leader
+                    </li>
+                    <li style="padding: 10px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #f5576c; font-weight: bold;">3.</span>
+                        <strong>Evgeny Babushkin</strong> - Director, Business Development Digital Services (Europe) -
+                        Partnership development focus
+                    </li>
+                    <li style="padding: 10px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #f5576c; font-weight: bold;">4.</span>
+                        <strong>Nick Banich</strong> - Chief Revenue Officer (USA/Canada) - Alliances and partnerships
+                        authority
+                    </li>
+                </ul>
+
+                <h4 style="color: #667eea; margin: 25px 0 15px 0;">Secondary Targets (Tier 2 - Strategic Relationships)
+                </h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #667eea; font-weight: bold;">▶</span>
+                        <strong>Jorge Motjé & Jürgen Hess</strong> (Co-CEOs) - For strategic global partnerships
+                    </li>
+                    <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #667eea; font-weight: bold;">▶</span>
+                        <strong>Mike Brown</strong> - Head of Process & IT Practice (USA/Canada) - Technology
+                        implementation
+                    </li>
+                    <li style="padding: 8px 0; padding-left: 25px; position: relative;">
+                        <span style="position: absolute; left: 0; color: #667eea; font-weight: bold;">▶</span>
+                        <strong>Regional Managing Directors</strong> - For territory-specific opportunities
+                    </li>
+                </ul>
+
+                <h4 style="color: #667eea; margin: 25px 0 15px 0;">Value Proposition for Miebach</h4>
+                <div style="background: rgba(0, 0, 0, 0.2); padding: 15px; border-radius: 10px; margin-top: 10px;">
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 8px 0;">✓ <strong>Enhance Snowflake Partnership:</strong> Celebal's
+                            Snowflake expertise can amplify Miebach's data cloud capabilities</li>
+                        <li style="padding: 8px 0;">✓ <strong>Azure/AWS Integration:</strong> Strengthen multi-cloud
+                            strategy with Celebal's cloud-native solutions</li>
+                        <li style="padding: 8px 0;">✓ <strong>Databricks Synergy:</strong> Leverage DAIS 2025 connection
+                            (Sisi Ren) for AI/ML supply chain initiatives</li>
+                        <li style="padding: 8px 0;">✓ <strong>Scale Digital Services:</strong> Support Miebach's digital
+                            transformation offerings with advanced analytics</li>
+                        <li style="padding: 8px 0;">✓ <strong>Global Delivery:</strong> Celebal's presence complements
+                            Miebach's 26 global offices</li>
+                    </ul>
+                </div>
+
+                <h4 style="color: #667eea; margin: 25px 0 15px 0;">Recommended Approach</h4>
+                <div
+                    style="background: rgba(102, 126, 234, 0.2); padding: 15px; border-radius: 10px; margin-top: 10px;">
+                    <p style="margin-bottom: 10px;"><strong>Step 1:</strong> Warm introduction through Sisi Ren (met at
+                        DAIS 2025) to Victoria Ma</p>
+                    <p style="margin-bottom: 10px;"><strong>Step 2:</strong> Parallel outreach to Evgeny Babushkin
+                        (Europe) and Nick Banich (USA/Canada)</p>
+                    <p style="margin-bottom: 10px;"><strong>Step 3:</strong> Position Celebal as complementary to
+                        existing Snowflake/Databricks partnerships</p>
+                    <p style="margin-bottom: 10px;"><strong>Step 4:</strong> Propose joint client engagement or
+                        proof-of-concept in supply chain analytics</p>
+                    <p><strong>Step 5:</strong> Escalate to Co-CEOs for strategic partnership discussion</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Sources & References -->
+        <div class="section">
+            <h2 class="section-title">Data Sources & References</h2>
+
+            <div class="highlight-box">
+                <h3>📚 Research Methodology</h3>
+                <p>This profile was compiled from publicly available information including official company websites,
+                    LinkedIn profiles, industry publications, and verified partnership announcements. All data was
+                    gathered in December 2024.</p>
+            </div>
+
+            <div class="card-grid" style="margin-top: 30px;">
+                <div class="card">
+                    <h3>🔗 Official Sources</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ Miebach Official Website
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.linkedin.com/company/miebach/" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ Miebach LinkedIn Company Page
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/en/about-us/partnerships" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ Miebach Partnerships Page
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/en/events" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ Miebach Events Calendar
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🤝 Partnership Announcements</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 8px 0;">
+                            <a href="https://positivethinking.tech/news/miebach-consulting-joins-snowflake-partner-network/"
+                                target="_blank" style="color: #667eea; text-decoration: none;">
+                                ▶ Snowflake Partnership (March 2022)
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/en/about-us/partnerships/log-hub" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ Log-Hub Partnership
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.coupa.com/partners/miebach-consulting" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ Coupa Alliance
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.investcorp.com/news/investcorp-completes-acquisition-of-miebach-consulting/"
+                                target="_blank" style="color: #667eea; text-decoration: none;">
+                                ▶ ELEMQ Joint Venture Details
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>📊 Industry Publications</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 8px 0;">
+                            <a href="https://businessviewmagazine.com/miebach-consulting-supply-chain-solutions/"
+                                target="_blank" style="color: #667eea; text-decoration: none;">
+                                ▶ Business View Magazine Profile
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.businessapac.com/miebach-consulting-supply-chain-excellence/"
+                                target="_blank" style="color: #667eea; text-decoration: none;">
+                                ▶ Business APAC Feature
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.supplychainbrain.com/authors/2443-miebach-consulting" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ Supply Chain Brain Articles
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.thesiliconreview.com/magazines/miebach-consulting/" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ The Silicon Review Coverage
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>📍 Office Locations</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/en/contact" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ Miebach Global Offices
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.leadiq.com/c/miebach-consulting/5a1d8f3e2300002d00c9c9e3"
+                                target="_blank" style="color: #667eea; text-decoration: none;">
+                                ▶ LeadIQ Company Data
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/en/news/miebach-us-headquarters-fishers-indiana"
+                                target="_blank" style="color: #667eea; text-decoration: none;">
+                                ▶ US HQ Relocation Announcement
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🎯 Case Studies</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/en/case-studies/strategic-nearshoring-health-consumer-goods"
+                                target="_blank" style="color: #667eea; text-decoration: none;">
+                                ▶ Strategic Nearshoring Case
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/en/case-studies/smart-greenfield-factory-automotive-emobility"
+                                target="_blank" style="color: #667eea; text-decoration: none;">
+                                ▶ Smart Greenfield Factory
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/en/case-studies/logistics-network-redesign-swiss-retailer"
+                                target="_blank" style="color: #667eea; text-decoration: none;">
+                                ▶ Swiss Retailer Network Redesign
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/en/case-studies/global-manufacturing-distribution-beauty-brand"
+                                target="_blank" style="color: #667eea; text-decoration: none;">
+                                ▶ Global Manufacturing Optimization
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>📅 Events & Conferences</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/en/events/gartner-supply-chain-symposium-2025"
+                                target="_blank" style="color: #667eea; text-decoration: none;">
+                                ▶ Gartner Supply Chain Symposium
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/en/events/logimat-2025" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ LogiMAT 2025
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/en/events/opticon-2025" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ OptiCon 2025
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/en/events/industry-summit-germany-2025" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ Industry Summit Germany 2025
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>💻 Technology & Solutions</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/en/services/digital" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ Digital Services Overview
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/en/services/automation-robotics" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ Automation & Robotics Solutions
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/en/insights/ai-supply-chain" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ AI in Supply Chain
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.databricks.com/partners" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ Databricks Partner Ecosystem
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>🏆 Recognition & Awards</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.miebach.com/en/news/germany-best-consultants-2024" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ Germany's Best Consultants 2024
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.pitchbook.com/profiles/company/52851-42" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ PitchBook Company Profile
+                            </a>
+                        </li>
+                        <li style="padding: 8px 0;">
+                            <a href="https://www.craft.co/miebach-consulting" target="_blank"
+                                style="color: #667eea; text-decoration: none;">
+                                ▶ Craft.co Company Intelligence
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box" style="margin-top: 30px;">
+                <h3>🔍 Additional Research Resources</h3>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-top: 15px;">
+                    <div>
+                        <h4 style="color: #667eea; margin-bottom: 10px;">Technology Partner Resources</h4>
+                        <ul style="list-style: none; padding-left: 0; font-size: 0.95em;">
+                            <li style="padding: 5px 0;">
+                                <a href="https://www.snowflake.com/partners/" target="_blank"
+                                    style="color: #b0b0b0; text-decoration: none;">→ Snowflake Partner Network</a>
+                            </li>
+                            <li style="padding: 5px 0;">
+                                <a href="https://azure.microsoft.com/en-us/partners/" target="_blank"
+                                    style="color: #b0b0b0; text-decoration: none;">→ Microsoft Azure Partners</a>
+                            </li>
+                            <li style="padding: 5px 0;">
+                                <a href="https://aws.amazon.com/partners/" target="_blank"
+                                    style="color: #b0b0b0; text-decoration: none;">→ AWS Partner Network</a>
+                            </li>
+                            <li style="padding: 5px 0;">
+                                <a href="https://www.databricks.com/partners" target="_blank"
+                                    style="color: #b0b0b0; text-decoration: none;">→ Databricks Partners</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #667eea; margin-bottom: 10px;">Industry Events</h4>
+                        <ul style="list-style: none; padding-left: 0; font-size: 0.95em;">
+                            <li style="padding: 5px 0;">
+                                <a href="https://www.gartner.com/en/conferences/na/supply-chain-us" target="_blank"
+                                    style="color: #b0b0b0; text-decoration: none;">→ Gartner Supply Chain Events</a>
+                            </li>
+                            <li style="padding: 5px 0;">
+                                <a href="https://www.logimat-messe.de/en" target="_blank"
+                                    style="color: #b0b0b0; text-decoration: none;">→ LogiMAT Trade Fair</a>
+                            </li>
+                            <li style="padding: 5px 0;">
+                                <a href="https://www.databricks.com/dataaisummit/" target="_blank"
+                                    style="color: #b0b0b0; text-decoration: none;">→ Databricks Data + AI Summit
+                                    (DAIS)</a>
+                            </li>
+                            <li style="padding: 5px 0;">
+                                <a href="https://www.snowflake.com/summit/" target="_blank"
+                                    style="color: #b0b0b0; text-decoration: none;">→ Snowflake Summit</a>
+                            </li>
+                            style="color: #333; text-decoration: none;">→ Snowflake Summit</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 50px; padding-top: 30px; border-top: 2px solid #e0e0e0;">
+            <p style="color: #666; font-size: 0.95em;">
+                <strong>Website:</strong> <a href="https://www.miebach.com"
+                    style="color: #667eea; text-decoration: none;">www.miebach.com</a> |
+                <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/company/miebach/"
+                    style="color: #667eea; text-decoration: none;">linkedin.com/company/miebach</a>
+            </p>
+            <p style="color: #999; font-size: 0.85em; margin-top: 15px;">
+                Profile compiled: December 2024 | Research-based company intelligence
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
